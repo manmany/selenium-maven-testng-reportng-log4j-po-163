@@ -20,6 +20,62 @@
 
 2. maven/Jenkins reportNG可视化报告：${workspace}/target/surefire-reports/html/index.html
 
+# pom.xml依赖
+1. testng
+
+```
+<dependency>
+		<groupId>org.testng</groupId>
+		<artifactId>testng</artifactId>
+		<version>6.14.2</version>
+	</dependency>
+```
+
+2. reportNG
+
+```
+    <!-- ReportNG is a simple HTML reporting plug-in for the TestNG unit-testing framework  -->
+    <dependency>
+  	    <groupId>org.uncommons</groupId>
+	    <artifactId>reportng</artifactId>
+	    <version>1.1.4</version>
+	     <scope>test</scope>
+        <exclusions>
+            <exclusion>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+            </exclusion>
+        </exclusions>
+  	</dependency>  	
+  	<!-- [ERROR] java.lang.NoClassDefFoundError: com/google/inject/Injector -->
+  	<!-- Google Guice Core Library  -->
+ 	<dependency>
+	    <groupId>com.google.inject</groupId>
+	    <artifactId>guice</artifactId>
+	    <version>4.1.0</version>
+	    <classifier>no_aop</classifier>
+	    <scope>test</scope>
+	 </dependency>
+ 	 <dependency>
+        <groupId>velocity</groupId>
+        <artifactId>velocity-dep</artifactId>
+        <version>1.4</version>
+     </dependency>
+```
+ 
+3. Log4j
+
+```
+	<dependency>
+		 <groupId>log4j</groupId>
+		 <artifactId>log4j</artifactId>
+		 <version>1.2.16</version>
+	</dependency>
+```
+
+
+
+
 
 
 
