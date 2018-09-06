@@ -21,17 +21,18 @@
 2. maven/Jenkins reportNG可视化报告：${workspace}/target/surefire-reports/html/index.html
 
 # pom.xml依赖
-1. testng
+## 1. testng
 
 ```
-<dependency>
+    <!-- A testing framework for the JVM  -->
+    <dependency>
 		<groupId>org.testng</groupId>
 		<artifactId>testng</artifactId>
 		<version>6.14.2</version>
 	</dependency>
 ```
 
-2. reportNG
+## 2. reportNG
 
 ```
     <!-- ReportNG is a simple HTML reporting plug-in for the TestNG unit-testing framework  -->
@@ -63,7 +64,7 @@
      </dependency>
 ```
  
-3. Log4j
+## 3. Log4j
 
 ```
 	<dependency>
@@ -72,10 +73,3 @@
 		 <version>1.2.16</version>
 	</dependency>
 ```
-
-
-
-
-
-
-
