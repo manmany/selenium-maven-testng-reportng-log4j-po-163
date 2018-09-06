@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>selenium-maven-testng-reportng-log4j-po-163</groupId>
+  <artifactId>selenium-maven-testng-reportng-log4j-po-163</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>selenium-maven-testng-reportng-log4j-po-163</name>
+  <description>selenium-maven-testng-reportng-log4j-po-163</description>
+  
+  
+  <properties>
+  	<testngFile>testng.xml</testngFile>
+  </properties>
+  
+  <dependencies>
+	
+	<!-- TestNG -->
+	<!-- A testing framework for the JVM  -->
+	<dependency>
+			<groupId>org.testng</groupId>
+		    <artifactId>testng</artifactId>
+		    <version>6.14.2</version>
+	</dependency>
+  
+  	<!-- start reportNG -->
+  	<!-- ReportNG is a simple HTML reporting plug-in for the TestNG unit-testing framework  -->
+  	<dependency>
+  	    <groupId>org.uncommons</groupId>
+	    <artifactId>reportng</artifactId>
+	    <version>1.1.4</version>
+	     <scope>test</scope>
+        <exclusions>
+            <exclusion>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+            </exclusion>
+        </exclusions>
+  	</dependency>  	
+  	<!-- [ERROR] java.lang.NoClassDefFoundError: com/google/inject/Injector -->
+  	<!-- Google Guice Core Library  -->
+ 	<dependency>
+	    <groupId>com.google.inject</groupId>
+	    <artifactId>guice</artifactId>
+	    <version>4.1.0</version>
+	    <classifier>no_aop</classifier>
+	    <scope>test</scope>
+	 </dependency>
+ 	 <dependency>
+        <groupId>velocity</groupId>
+        <artifactId>velocity-dep</artifactId>
+        <version>1.4</version>
+     </dependency>
+	<!-- end reportNG -->
+        
+  	  <!-- selenium -->
+	  <dependency>
+			    <groupId>org.seleniumhq.selenium</groupId>
+			    <artifactId>selenium-server</artifactId>
+			    <version>3.11.0</version>
+	</dependency>
+ 	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>3.11.0</version>
+	</dependency> 
+	<!-- Guava is a suite of core and expanded libraries that include utility classes, google's collections, io classes, and much much more. -->
+		<!-- java.lang.NoSuchMethodError: com.google.common.base.Preconditions.checkState -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>23.0</version>
+        </dependency>
+	
+	
+  	<!-- browser driver -->
+  	<!-- firefox -->
+	  <dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-firefox-driver</artifactId>
+	    <version>3.11.0</version>
+	</dependency>
+	<!-- Chrome -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-chrome-driver</artifactId>
+	    <version>3.11.0</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-ie-driver</artifactId>
+	    <version>3.11.0</version>
+	</dependency> 
+	  
+	  <!-- Logging -->
+	  <dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.16</version>
+		</dependency>
+
+	  
+  </dependencies>
+  
+  
+  	<build>
+  		<plugins>
+  			<!-- The Compiler Plugin is used to compile the sources of your project -->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-compiler-plugin</artifactId>
+			    <version>3.6.0</version>	
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<verbose>true</verbose>
+					<fork>true</fork>
+					<executable>C:\Program Files\Java\jdk1.8.0_181\bin\javac</executable>
+				</configuration>
+			</plugin>
+			
+			<!-- Running testNG and setting reports format-->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <version>2.19.1</version>
+			    <configuration>
+			    
+			    	<!-- Tells maven-surefile-plugin where to find the testng.xml file -->
+			        <suiteXmlFiles>
+			            <suiteXmlFile>src/main/resources/${testngFile}</suiteXmlFile>
+			        </suiteXmlFiles>
+			        
+			        
+				     <!--  Using custom listeners and reporters -->
+				     <properties>
+			            <property>
+			              <name>usedefaultlisteners</name>
+			              <value>false</value> <!-- disabling default listeners is optional -->
+			            </property>
+			            
+			            <property>
+			              <name>listener</name>
+			              <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+			            </property>
+	
+			          </properties>
+			          <!-- <workingDirectory>test-output/</workingDirectory> -->
+			     </configuration>
+			     
+
+			</plugin>
+  		</plugins>
+ 	
+  	</build>
+</project>
