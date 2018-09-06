@@ -10,6 +10,11 @@
 
 # 执行报告查看
 1. testng.xml 执行可视化报告：${workspace}/test-output/index.html（ testng.xml中需要设置监听器：org.uncommons.reportng.HTMLReporter）
+>	<listeners>
+>     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+>      <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+>      <listener class-name="Utils.RetryListener"/>
+>  </listeners><!-- Listener -->
 2. maven/Jenkins reportNG可视化报告：${workspace}/target/surefire-reports/html/index.html
 
 
