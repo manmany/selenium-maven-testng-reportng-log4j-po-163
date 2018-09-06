@@ -10,6 +10,5 @@
 
 # 执行报告查看
 1. testng.xml 执行可视化报告：${workspace}/test-output/index.html
-2. maven执行报告：
-3. Jenkins reportNG可视化报告：target\surefire-reports
+2. maven/Jenkins reportNG可视化报告：${workspace}/target/surefire-reports/html/index.html
 
