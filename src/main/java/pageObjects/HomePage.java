@@ -102,6 +102,12 @@ public class HomePage extends Base {
 		WebElement exit = findElement(By.id("photo_index_logout"));
 		assertEquals(exit.getText(), "退出", "登录失败！" );
 		File file = new File("src/main/resources/TestCookies.txt");
+		//判断文件是否存在
+		if(file.exists()) {
+			info("文件存在");
+			file.delete();
+			info("删除文件");
+		}
 		
 //		Set<Cookie> cookies = driver.manage().getCookies();
 //
