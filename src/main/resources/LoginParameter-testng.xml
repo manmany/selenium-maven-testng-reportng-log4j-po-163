@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+  <test name="Test">
+  	<parameter name="browserName"     value="chrome" />
+    <classes>
+    	<parameter name="username"     value="autotest1" />
+    	<parameter name="password"     value="qa1234" />
+      <class name="com.man.test.TestBrowserName"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

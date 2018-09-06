@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Suite" parallel="tests" verbose="10">
+
+  <listeners>
+      <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+      <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+      <listener class-name="Utils.RetryListener"/>
+  </listeners><!-- Listener -->
+
+
+  <test name="TestChrome">
+  	<parameter name="browserName"     value="chrome" />
+    <classes>
+      <class name="com.man.test.TestBrowserName"/>
+    </classes>
+  </test>  
+  
+    <test name="TestFirefox">
+  	<parameter name="browserName"     value="firefox" />
+    <classes>
+      <class name="com.man.test.TestBrowserName"/>
+    </classes>
+  </test> 
+  
+  
+
+  
+</suite> <!-- Suite -->
